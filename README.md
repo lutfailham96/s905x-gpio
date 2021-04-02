@@ -5,7 +5,7 @@ GPIO controller for Amlogic S905X devices
 - choose your s905x device model, example for model ```hg680p```
 - install gpio controller to system
 ```sh
-(cd /usr/bin && curl -sLko https://raw.githubusercontent.com/lutfailham96/s905x-gpio/main/hg680p.sh && chmod +x hg680p.sh)
+(cd /usr/bin && curl -sLko hg680p.sh https://raw.githubusercontent.com/lutfailham96/s905x-gpio/main/hg680p.sh && chmod +x hg680p.sh)
 ```
 - run ```device_model.sh``` script to show help menu
 ```sh
