@@ -14,7 +14,7 @@ SERVICE_NAME="Internet Indicator"
 function loop() {
   while true; do
     hg680p.sh -lan warn
-    if curl -so /dev/null "http://bing.com"; then
+    if curl -X "HEAD" --connect-timeout 3 -so /dev/null "http://bing.com"; then
       hg680p.sh -lan on
     else
       hg680p.sh -lan off
