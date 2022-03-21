@@ -2,7 +2,7 @@
 
 # HG680P GPIO Wrapper
 # by Lutfa Ilham
-# v1.0
+# v1.0.0
 
 if [ "$(id -u)" != "0" ]; then
   echo "This script must be run as root" 1>&2
@@ -57,9 +57,15 @@ function usb() {
   echo "${pin_usb}" > "${GPIO}/export"
   echo out > "${GPIO}/gpio${pin_usb}/direction"
   case "${1}" in
+    "on")
+      echo 1 > "${GPIO}/gpio${pin_usb}/value"
+      ;;
+    "off")
+      echo 0 > "${GPIO}/gpio${pin_usb}/value"
+      ;;
     "reset")
       echo 0 > "${GPIO}/gpio${pin_usb}/value"
-      sleep 1
+      sleep 5
       echo 1 > "${GPIO}/gpio${pin_usb}/value"
       ;;
   esac
@@ -88,4 +94,3 @@ case "${1}" in
     usage
     ;;
 esac
-
